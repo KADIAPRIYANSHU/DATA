@@ -1,0 +1,1305 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/4/2022 12:24:10 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="KCSLAP5284"
+  DTS:CreatorName="KCSITGLOBAL\Priyanshu.Kadia"
+  DTS:DTSID="{D269F1AE-9385-4ED0-80F8-DBC05E161D25}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{B3C92934-9A24-4BDD-AD6B-964CD821E05C}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[192.168.1.250\SQL2019INT.Priyanshu.Kadia.priyanshu]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{54220D1A-9F34-467E-A2A7-1595B82B1BD2}"
+      DTS:ObjectName="192.168.1.250\SQL2019INT.Priyanshu.Kadia.priyanshu">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=192.168.1.250\SQL2019INT;User ID=priyanshu;Initial Catalog=Priyanshu.Kadia;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAATDdlLX2cGkas072nffAATgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADd/EQ4CUGKL8Gb9Mb0Hm5rmkOvZa0twr9BBCAcae/QMQAAAAAOgAAAAAIAACAAAAA3kJ4VsAU9hdHyiTLiQZ48TdPepNTiCyrpIi0BX8BaPCAAAACodudq4DBfGsrJZUgzmRCg37efblf/n1pTREH8gT1AHkAAAAAD0DPilzXaBfIgP/sGU3XRBcF6FXJR6HnsEblg5+FQGUnhmA+DIoM8keNyhGQfF/RI1lTXE072b7ANhzK8XSEE</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{831EB735-2E62-4EAC-A5B7-148483EB2320}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\Training\SSIS\Project_1\EMP.xlsx;Extended Properties=&quot;EXCEL 3.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT sql to sql"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{C9128DE0-1668-4F05-80B9-20A7EF2110B1}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT sql to sql"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT sql to sql\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT sql to sql\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT sql to sql\Data Conversion.Inputs[Data Conversion Input].Columns[employee_name]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="employee_name"
+                      lineageId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Output].Columns[employee_name]" />
+                    <inputColumn
+                      refId="Package\DFT sql to sql\Data Conversion.Inputs[Data Conversion Input].Columns[employee_dob]"
+                      cachedDataType="dbDate"
+                      cachedName="employee_dob"
+                      lineageId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Output].Columns[employee_dob]" />
+                    <inputColumn
+                      refId="Package\DFT sql to sql\Data Conversion.Inputs[Data Conversion Input].Columns[employee_doj]"
+                      cachedDataType="dbDate"
+                      cachedName="employee_doj"
+                      lineageId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Output].Columns[employee_doj]" />
+                    <inputColumn
+                      refId="Package\DFT sql to sql\Data Conversion.Inputs[Data Conversion Input].Columns[employee_company]"
+                      cachedDataType="i4"
+                      cachedName="employee_company"
+                      lineageId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Output].Columns[employee_company]" />
+                    <inputColumn
+                      refId="Package\DFT sql to sql\Data Conversion.Inputs[Data Conversion Input].Columns[employee_city]"
+                      cachedDataType="i4"
+                      cachedName="employee_city"
+                      lineageId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Output].Columns[employee_city]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT sql to sql\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\DFT sql to sql\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT sql to sql\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of employee_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\DFT sql to sql\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of employee_name]"
+                      name="Copy of employee_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Output].Columns[employee_name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT sql to sql\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of employee_dob]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DFT sql to sql\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of employee_dob]"
+                      name="Copy of employee_dob"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Output].Columns[employee_dob]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT sql to sql\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of employee_doj]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DFT sql to sql\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of employee_doj]"
+                      name="Copy of employee_doj"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Output].Columns[employee_doj]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT sql to sql\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of employee_company]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DFT sql to sql\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of employee_company]"
+                      name="Copy of employee_company"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Output].Columns[employee_company]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT sql to sql\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of employee_city]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DFT sql to sql\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of employee_city]"
+                      name="Copy of employee_city"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Output].Columns[employee_city]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT sql to sql\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\DFT sql to sql\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT sql to sql\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT sql to sql\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT sql to sql\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT sql to sql\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT sql to sql\EMPLOYEE"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="EMPLOYEE"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Employee2]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT sql to sql\EMPLOYEE.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[192.168.1.250\SQL2019INT.Priyanshu.Kadia.priyanshu]"
+                  connectionManagerRefId="Package.ConnectionManagers[192.168.1.250\SQL2019INT.Priyanshu.Kadia.priyanshu]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Output].Columns[employee_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Output].ExternalColumns[employee_id]"
+                      lineageId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Output].Columns[employee_id]"
+                      name="employee_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Output].Columns[employee_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Output].ExternalColumns[employee_name]"
+                      length="20"
+                      lineageId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Output].Columns[employee_name]"
+                      name="employee_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Output].Columns[employee_dob]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Output].ExternalColumns[employee_dob]"
+                      lineageId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Output].Columns[employee_dob]"
+                      name="employee_dob"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Output].Columns[employee_salary]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Output].ExternalColumns[employee_salary]"
+                      lineageId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Output].Columns[employee_salary]"
+                      name="employee_salary"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Output].Columns[employee_doj]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Output].ExternalColumns[employee_doj]"
+                      lineageId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Output].Columns[employee_doj]"
+                      name="employee_doj"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Output].Columns[employee_company]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Output].ExternalColumns[employee_company]"
+                      lineageId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Output].Columns[employee_company]"
+                      name="employee_company"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Output].Columns[employee_city]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Output].ExternalColumns[employee_city]"
+                      lineageId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Output].Columns[employee_city]"
+                      name="employee_city"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Output].ExternalColumns[employee_id]"
+                      dataType="i4"
+                      name="employee_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Output].ExternalColumns[employee_name]"
+                      dataType="wstr"
+                      length="20"
+                      name="employee_name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Output].ExternalColumns[employee_dob]"
+                      dataType="dbDate"
+                      name="employee_dob" />
+                    <externalMetadataColumn
+                      refId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Output].ExternalColumns[employee_salary]"
+                      dataType="i4"
+                      name="employee_salary" />
+                    <externalMetadataColumn
+                      refId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Output].ExternalColumns[employee_doj]"
+                      dataType="dbDate"
+                      name="employee_doj" />
+                    <externalMetadataColumn
+                      refId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Output].ExternalColumns[employee_company]"
+                      dataType="i4"
+                      name="employee_company" />
+                    <externalMetadataColumn
+                      refId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Output].ExternalColumns[employee_city]"
+                      dataType="i4"
+                      name="employee_city" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Error Output].Columns[employee_id]"
+                      dataType="i4"
+                      lineageId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Error Output].Columns[employee_id]"
+                      name="employee_id" />
+                    <outputColumn
+                      refId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Error Output].Columns[employee_name]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Error Output].Columns[employee_name]"
+                      name="employee_name" />
+                    <outputColumn
+                      refId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Error Output].Columns[employee_dob]"
+                      dataType="dbDate"
+                      lineageId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Error Output].Columns[employee_dob]"
+                      name="employee_dob" />
+                    <outputColumn
+                      refId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Error Output].Columns[employee_salary]"
+                      dataType="i4"
+                      lineageId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Error Output].Columns[employee_salary]"
+                      name="employee_salary" />
+                    <outputColumn
+                      refId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Error Output].Columns[employee_doj]"
+                      dataType="dbDate"
+                      lineageId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Error Output].Columns[employee_doj]"
+                      name="employee_doj" />
+                    <outputColumn
+                      refId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Error Output].Columns[employee_company]"
+                      dataType="i4"
+                      lineageId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Error Output].Columns[employee_company]"
+                      name="employee_company" />
+                    <outputColumn
+                      refId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Error Output].Columns[employee_city]"
+                      dataType="i4"
+                      lineageId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Error Output].Columns[employee_city]"
+                      name="employee_city" />
+                    <outputColumn
+                      refId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT sql to sql\EMPLOYEE-BKP"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="EMPLOYEE-BKP"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[EMPLOYEE_BKP1]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT sql to sql\EMPLOYEE-BKP.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[192.168.1.250\SQL2019INT.Priyanshu.Kadia.priyanshu]"
+                  connectionManagerRefId="Package.ConnectionManagers[192.168.1.250\SQL2019INT.Priyanshu.Kadia.priyanshu]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT sql to sql\EMPLOYEE-BKP.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT sql to sql\EMPLOYEE-BKP.Inputs[OLE DB Destination Input].Columns[employee_id]"
+                      cachedDataType="i4"
+                      cachedName="employee_id"
+                      externalMetadataColumnId="Package\DFT sql to sql\EMPLOYEE-BKP.Inputs[OLE DB Destination Input].ExternalColumns[employee_id]"
+                      lineageId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Output].Columns[employee_id]" />
+                    <inputColumn
+                      refId="Package\DFT sql to sql\EMPLOYEE-BKP.Inputs[OLE DB Destination Input].Columns[employee_name]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="employee_name"
+                      externalMetadataColumnId="Package\DFT sql to sql\EMPLOYEE-BKP.Inputs[OLE DB Destination Input].ExternalColumns[employee_name]"
+                      lineageId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Output].Columns[employee_name]" />
+                    <inputColumn
+                      refId="Package\DFT sql to sql\EMPLOYEE-BKP.Inputs[OLE DB Destination Input].Columns[employee_dob]"
+                      cachedDataType="dbDate"
+                      cachedName="employee_dob"
+                      externalMetadataColumnId="Package\DFT sql to sql\EMPLOYEE-BKP.Inputs[OLE DB Destination Input].ExternalColumns[employee_dob]"
+                      lineageId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Output].Columns[employee_dob]" />
+                    <inputColumn
+                      refId="Package\DFT sql to sql\EMPLOYEE-BKP.Inputs[OLE DB Destination Input].Columns[employee_salary]"
+                      cachedDataType="i4"
+                      cachedName="employee_salary"
+                      externalMetadataColumnId="Package\DFT sql to sql\EMPLOYEE-BKP.Inputs[OLE DB Destination Input].ExternalColumns[employee_salary]"
+                      lineageId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Output].Columns[employee_salary]" />
+                    <inputColumn
+                      refId="Package\DFT sql to sql\EMPLOYEE-BKP.Inputs[OLE DB Destination Input].Columns[employee_doj]"
+                      cachedDataType="dbDate"
+                      cachedName="employee_doj"
+                      externalMetadataColumnId="Package\DFT sql to sql\EMPLOYEE-BKP.Inputs[OLE DB Destination Input].ExternalColumns[employee_doj]"
+                      lineageId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Output].Columns[employee_doj]" />
+                    <inputColumn
+                      refId="Package\DFT sql to sql\EMPLOYEE-BKP.Inputs[OLE DB Destination Input].Columns[employee_company]"
+                      cachedDataType="i4"
+                      cachedName="employee_company"
+                      externalMetadataColumnId="Package\DFT sql to sql\EMPLOYEE-BKP.Inputs[OLE DB Destination Input].ExternalColumns[employee_company]"
+                      lineageId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Output].Columns[employee_company]" />
+                    <inputColumn
+                      refId="Package\DFT sql to sql\EMPLOYEE-BKP.Inputs[OLE DB Destination Input].Columns[employee_city]"
+                      cachedDataType="i4"
+                      cachedName="employee_city"
+                      externalMetadataColumnId="Package\DFT sql to sql\EMPLOYEE-BKP.Inputs[OLE DB Destination Input].ExternalColumns[employee_city]"
+                      lineageId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Output].Columns[employee_city]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT sql to sql\EMPLOYEE-BKP.Inputs[OLE DB Destination Input].ExternalColumns[employee_id]"
+                      dataType="i4"
+                      name="employee_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT sql to sql\EMPLOYEE-BKP.Inputs[OLE DB Destination Input].ExternalColumns[employee_name]"
+                      dataType="wstr"
+                      length="20"
+                      name="employee_name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT sql to sql\EMPLOYEE-BKP.Inputs[OLE DB Destination Input].ExternalColumns[employee_dob]"
+                      dataType="dbDate"
+                      name="employee_dob" />
+                    <externalMetadataColumn
+                      refId="Package\DFT sql to sql\EMPLOYEE-BKP.Inputs[OLE DB Destination Input].ExternalColumns[employee_salary]"
+                      dataType="i4"
+                      name="employee_salary" />
+                    <externalMetadataColumn
+                      refId="Package\DFT sql to sql\EMPLOYEE-BKP.Inputs[OLE DB Destination Input].ExternalColumns[employee_doj]"
+                      dataType="dbDate"
+                      name="employee_doj" />
+                    <externalMetadataColumn
+                      refId="Package\DFT sql to sql\EMPLOYEE-BKP.Inputs[OLE DB Destination Input].ExternalColumns[employee_company]"
+                      dataType="i4"
+                      name="employee_company" />
+                    <externalMetadataColumn
+                      refId="Package\DFT sql to sql\EMPLOYEE-BKP.Inputs[OLE DB Destination Input].ExternalColumns[employee_city]"
+                      dataType="i4"
+                      name="employee_city" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT sql to sql\EMPLOYEE-BKP.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT sql to sql\EMPLOYEE-BKP.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT sql to sql\EMPLOYEE-BKP.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT sql to sql\EMPLOYEE-BKP.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT sql to sql\EMPLOYEE-BKP.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT sql to sql\EMPLOYEE-BKP.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT sql to sql\Excel Destination"
+              componentClassID="Microsoft.ExcelDestination"
+              contactInfo="Excel Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Excel Destination"
+              name="Excel Destination"
+              usesDispositions="true">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Sheet1$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT sql to sql\Excel Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT sql to sql\Excel Destination.Inputs[Excel Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Excel Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT sql to sql\Excel Destination.Inputs[Excel Destination Input].Columns[employee_name]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="employee_name"
+                      externalMetadataColumnId="Package\DFT sql to sql\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[employee_name]"
+                      lineageId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Output].Columns[employee_name]" />
+                    <inputColumn
+                      refId="Package\DFT sql to sql\Excel Destination.Inputs[Excel Destination Input].Columns[employee_dob]"
+                      cachedDataType="dbDate"
+                      cachedName="employee_dob"
+                      externalMetadataColumnId="Package\DFT sql to sql\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[employee_dob]"
+                      lineageId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Output].Columns[employee_dob]" />
+                    <inputColumn
+                      refId="Package\DFT sql to sql\Excel Destination.Inputs[Excel Destination Input].Columns[employee_salary]"
+                      cachedDataType="i4"
+                      cachedName="employee_salary"
+                      externalMetadataColumnId="Package\DFT sql to sql\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[employee_salary]"
+                      lineageId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Output].Columns[employee_salary]" />
+                    <inputColumn
+                      refId="Package\DFT sql to sql\Excel Destination.Inputs[Excel Destination Input].Columns[employee_doj]"
+                      cachedDataType="dbDate"
+                      cachedName="employee_doj"
+                      externalMetadataColumnId="Package\DFT sql to sql\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[employee_doj]"
+                      lineageId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Output].Columns[employee_doj]" />
+                    <inputColumn
+                      refId="Package\DFT sql to sql\Excel Destination.Inputs[Excel Destination Input].Columns[employee_company]"
+                      cachedDataType="i4"
+                      cachedName="employee_company"
+                      externalMetadataColumnId="Package\DFT sql to sql\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[employee_company]"
+                      lineageId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Output].Columns[employee_company]" />
+                    <inputColumn
+                      refId="Package\DFT sql to sql\Excel Destination.Inputs[Excel Destination Input].Columns[employee_city]"
+                      cachedDataType="i4"
+                      cachedName="employee_city"
+                      externalMetadataColumnId="Package\DFT sql to sql\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[employee_city]"
+                      lineageId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Output].Columns[employee_city]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT sql to sql\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[employee_name]"
+                      dataType="wstr"
+                      length="255"
+                      name="employee_name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT sql to sql\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[employee_dob]"
+                      dataType="wstr"
+                      length="255"
+                      name="employee_dob" />
+                    <externalMetadataColumn
+                      refId="Package\DFT sql to sql\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[employee_salary]"
+                      dataType="wstr"
+                      length="255"
+                      name="employee_salary" />
+                    <externalMetadataColumn
+                      refId="Package\DFT sql to sql\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[employee_doj]"
+                      dataType="wstr"
+                      length="255"
+                      name="employee_doj" />
+                    <externalMetadataColumn
+                      refId="Package\DFT sql to sql\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[employee_company]"
+                      dataType="wstr"
+                      length="255"
+                      name="employee_company" />
+                    <externalMetadataColumn
+                      refId="Package\DFT sql to sql\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[employee_city]"
+                      dataType="wstr"
+                      length="255"
+                      name="employee_city" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT sql to sql\Excel Destination.Outputs[Excel Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Excel Destination Error Output"
+                  synchronousInputId="Package\DFT sql to sql\Excel Destination.Inputs[Excel Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT sql to sql\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT sql to sql\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT sql to sql\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT sql to sql\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT sql to sql\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Employee2]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT sql to sql\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[192.168.1.250\SQL2019INT.Priyanshu.Kadia.priyanshu]"
+                  connectionManagerRefId="Package.ConnectionManagers[192.168.1.250\SQL2019INT.Priyanshu.Kadia.priyanshu]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Output].Columns[employee_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[employee_id]"
+                      lineageId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Output].Columns[employee_id]"
+                      name="employee_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Output].Columns[employee_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[employee_name]"
+                      length="20"
+                      lineageId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Output].Columns[employee_name]"
+                      name="employee_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Output].Columns[employee_dob]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[employee_dob]"
+                      lineageId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Output].Columns[employee_dob]"
+                      name="employee_dob"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Output].Columns[employee_salary]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[employee_salary]"
+                      lineageId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Output].Columns[employee_salary]"
+                      name="employee_salary"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Output].Columns[employee_doj]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[employee_doj]"
+                      lineageId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Output].Columns[employee_doj]"
+                      name="employee_doj"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Output].Columns[employee_company]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[employee_company]"
+                      lineageId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Output].Columns[employee_company]"
+                      name="employee_company"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Output].Columns[employee_city]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[employee_city]"
+                      lineageId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Output].Columns[employee_city]"
+                      name="employee_city"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[employee_id]"
+                      dataType="i4"
+                      name="employee_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[employee_name]"
+                      dataType="wstr"
+                      length="20"
+                      name="employee_name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[employee_dob]"
+                      dataType="dbDate"
+                      name="employee_dob" />
+                    <externalMetadataColumn
+                      refId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[employee_salary]"
+                      dataType="i4"
+                      name="employee_salary" />
+                    <externalMetadataColumn
+                      refId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[employee_doj]"
+                      dataType="dbDate"
+                      name="employee_doj" />
+                    <externalMetadataColumn
+                      refId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[employee_company]"
+                      dataType="i4"
+                      name="employee_company" />
+                    <externalMetadataColumn
+                      refId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[employee_city]"
+                      dataType="i4"
+                      name="employee_city" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[employee_id]"
+                      dataType="i4"
+                      lineageId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[employee_id]"
+                      name="employee_id" />
+                    <outputColumn
+                      refId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[employee_name]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[employee_name]"
+                      name="employee_name" />
+                    <outputColumn
+                      refId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[employee_dob]"
+                      dataType="dbDate"
+                      lineageId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[employee_dob]"
+                      name="employee_dob" />
+                    <outputColumn
+                      refId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[employee_salary]"
+                      dataType="i4"
+                      lineageId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[employee_salary]"
+                      name="employee_salary" />
+                    <outputColumn
+                      refId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[employee_doj]"
+                      dataType="dbDate"
+                      lineageId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[employee_doj]"
+                      name="employee_doj" />
+                    <outputColumn
+                      refId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[employee_company]"
+                      dataType="i4"
+                      lineageId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[employee_company]"
+                      name="employee_company" />
+                    <outputColumn
+                      refId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[employee_city]"
+                      dataType="i4"
+                      lineageId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[employee_city]"
+                      name="employee_city" />
+                    <outputColumn
+                      refId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT sql to sql.Paths[Data Conversion Output]"
+              endId="Package\DFT sql to sql\Excel Destination.Inputs[Excel Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\DFT sql to sql\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\DFT sql to sql.Paths[OLE DB Source Output]"
+              endId="Package\DFT sql to sql\Data Conversion.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT sql to sql\OLE DB Source.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\DFT sql to sql.Paths[OLE DB Source Output1]"
+              endId="Package\DFT sql to sql\EMPLOYEE-BKP.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT sql to sql\EMPLOYEE.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{A70E5501-2CF1-4C12-B764-763D9AF34C08}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{54220D1A-9F34-467E-A2A7-1595B82B1BD2}"
+          SQLTask:SqlStatementSource="truncate table [EMPLOYEE_BKP1]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{FB743969-D153-427B-B087-95736632885D}"
+      DTS:From="Package\Execute SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DFT sql to sql" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="142.4,41.6"
+          Id="Package\DFT sql to sql"
+          TopLeft="191.111103517038,230.10000182867" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Execute SQL Task"
+          TopLeft="165.222215875432,72.6666672004594" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="247.622215875432,114.266667200459">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="14.6888876416065,115.833334628211"
+              Start="0,0"
+              End="14.6888876416065,108.333334628211">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.9166673141055" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,53.9166673141055"
+                    Point2="0,57.9166673141055"
+                    Point3="4,57.9166673141055" />
+                  <mssgle:LineSegment
+                    End="10.6888876416065,57.9166673141055" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10.6888876416065,57.9166673141055"
+                    Point2="14.6888876416065,57.9166673141055"
+                    Point3="14.6888876416065,61.9166673141055" />
+                  <mssgle:LineSegment
+                    End="14.6888876416065,108.333334628211" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT sql to sql">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="160,41.6"
+          Id="Package\DFT sql to sql\EMPLOYEE-BKP"
+          TopLeft="231.666657461061,341.4666693804" />
+        <NodeLayout
+          Size="136,41.6"
+          Id="Package\DFT sql to sql\EMPLOYEE"
+          TopLeft="225.833324359523,114.40000090917" />
+        <NodeLayout
+          Size="159.2,41.6"
+          Id="Package\DFT sql to sql\Excel Destination"
+          TopLeft="599.166642857923,366.600002913475" />
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\DFT sql to sql\OLE DB Source"
+          TopLeft="517.999979635081,64.4333338016934" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\DFT sql to sql\Data Conversion"
+          TopLeft="611.666642361218,240.933335248099" />
+        <EdgeLayout
+          Id="Package\DFT sql to sql.Paths[OLE DB Source Output1]"
+          TopLeft="293.833324359523,156.00000090917">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="17.8333331015374,185.46666847123"
+              Start="0,0"
+              End="17.8333331015374,177.96666847123">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,88.7333342356152" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,88.7333342356152"
+                    Point2="0,92.7333342356152"
+                    Point3="4,92.7333342356152" />
+                  <mssgle:LineSegment
+                    End="13.8333331015374,92.7333342356152" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13.8333331015374,92.7333342356152"
+                    Point2="17.8333331015374,92.7333342356152"
+                    Point3="17.8333331015374,96.7333342356152" />
+                  <mssgle:LineSegment
+                    End="17.8333331015374,177.96666847123" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT sql to sql.Paths[OLE DB Source Output]"
+          TopLeft="593.999979635081,106.033333801693">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="95.6666627261377,134.900001446406"
+              Start="0,0"
+              End="95.6666627261377,127.400001446406">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,63.450000723203" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,63.450000723203"
+                    Point2="0,67.450000723203"
+                    Point3="4,67.450000723203" />
+                  <mssgle:LineSegment
+                    End="91.6666627261377,67.450000723203" />
+                  <mssgle:CubicBezierSegment
+                    Point1="91.6666627261377,67.450000723203"
+                    Point2="95.6666627261377,67.450000723203"
+                    Point3="95.6666627261377,71.450000723203" />
+                  <mssgle:LineSegment
+                    End="95.6666627261377,127.400001446406" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT sql to sql.Paths[Data Conversion Output]"
+          TopLeft="689.666642361218,282.533335248099">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-10.8999995032948,84.0666676653756"
+              Start="0,0"
+              End="-10.8999995032948,76.5666676653756">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.0333338326878" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,38.0333338326878"
+                    Point2="0,42.0333338326878"
+                    Point3="-4,42.0333338326878" />
+                  <mssgle:LineSegment
+                    End="-6.89999950329479,42.0333338326878" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-6.89999950329479,42.0333338326878"
+                    Point2="-10.8999995032948,42.0333338326878"
+                    Point3="-10.8999995032948,46.0333338326878" />
+                  <mssgle:LineSegment
+                    End="-10.8999995032948,76.5666676653756" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT sql to sql\Excel Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT sql to sql\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT sql to sql\EMPLOYEE-BKP">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT sql to sql\EMPLOYEE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

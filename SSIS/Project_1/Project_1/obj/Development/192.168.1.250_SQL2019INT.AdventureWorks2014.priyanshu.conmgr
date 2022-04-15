@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="192.168.1.250_SQL2019INT.AdventureWorks2014.priyanshu"
+  DTS:DTSID="{2FDEBD68-6EB8-4DA7-A340-B1E7350739A3}"
+  DTS:CreationName="ADO">
+  <DTS:PropertyExpression
+    DTS:Name="Password">@[$Project::Password]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="UserName">@[$Project::UserName]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=192.168.1.250\SQL2019INT;User ID=priyanshu;Initial Catalog=AdventureWorks2014;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAATDdlLX2cGkas072nffAATgAAAAACAAAAAAAQZgAAAAEAACAAAAAUBN02veoPEdUrieWc+2xSKhMMj6vTh1Fz/tJX4qmllQAAAAAOgAAAAAIAACAAAABLIm6v3u5xZu4lfShW54bY6I9ZCWfSkiRzpTIPMBt1FoAAAACrXDqXkpKPZyhT8nQQIVvcS50kdyoflBdpQd7YphxZeNLeXRf3qYOG4MgwRVGe3YKr+uJ0aNuqXNjMOBMg+eS7t8K5mTU7d3GbuDZH6qbu60DfWOuc1qKLcCt9qi0h/AxBniivcB46mogt63LWWLqD69P2us/Y7ACQJWqKe+MhXkAAAABc83o9LP5qXPLLkUQOvBlHgSzUM72cSqDkphiuJxytZD+Bn4RVjsFk3Y9HizlEsjLdx5vbCb0C8BAlyzdqyYmM</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
